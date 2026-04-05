@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serenity Mind Therapy | Professional Psychologist Services</title>
+  <meta name="description" content="Serenity Mind Therapy provides professional psychologist services with easy appointment booking, compassionate care, and a calming warm-toned design." />
+  <style>
+    :root {
+      --bg: #fffaf3;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #ffffff;
+      --text: #2c1d12;
+      --muted: #6f5b4c;
+      --brown: #8b5a2b;
+      --brown-dark: #5b3517;
+      --orange: #d98c2b;
+      --orange-soft: #f3b15a;
+      --yellow: #f7d56b;
+      --shadow: 0 18px 45px rgba(91, 53, 23, 0.15);
+      --radius: 24px;
+      --radius-sm: 18px;
+      --border: 1px solid rgba(139, 90, 43, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(247, 213, 107, 0.42), transparent 28%),
+        radial-gradient(circle at top right, rgba(243, 177, 90, 0.30), transparent 24%),
+        linear-gradient(180deg, #fffdf8 0%, #fff7ea 35%, #fffaf3 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: rgba(91, 53, 23, 0.94);
+      color: #fff;
+      font-size: 0.92rem;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+    .topbar .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .topbar strong { color: var(--yellow); }
+
+    header {
+      padding: 18px 0 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--yellow) 100%);
+      display: grid;
+      place-items: center;
+      color: var(--brown-dark);
+      font-size: 1.2rem;
+      box-shadow: 0 10px 25px rgba(217, 140, 43, 0.35);
+    }
+    .brand span { display: block; }
+    .brand small { display: block; color: var(--muted); font-weight: 600; }
+
+    .navlinks {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--brown-dark);
+      font-weight: 600;
+    }
+    .navlinks a { opacity: 0.88; }
+    .navlinks a:hover { opacity: 1; color: var(--brown); }
+
+    .cta-btn, .ghost-btn, .submit-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+    .cta-btn, .submit-btn {
+      background: linear-gradient(135deg, var(--brown) 0%, var(--orange) 52%, var(--yellow) 100%);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(139, 90, 43, 0.22);
+    }
+    .ghost-btn {
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--brown-dark);
+      border: var(--border);
+    }
+    .cta-btn:hover, .ghost-btn:hover, .submit-btn:hover { transform: translateY(-2px); }
+
+    .hero {
+      padding: 28px 0 56px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      padding: 22px 0;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.75);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      color: var(--brown-dark);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 1.03;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+      color: var(--brown-dark);
+    }
+    .hero p {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 0 24px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .stat {
+      background: rgba(255,255,255,0.78);
+      border: var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(91, 53, 23, 0.08);
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.45rem;
+      color: var(--brown-dark);
+    }
+    .stat span { color: var(--muted); font-size: 0.92rem; }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.93), rgba(255,248,236,0.95));
+      border: 1px solid rgba(139, 90, 43, 0.10);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40px auto auto -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247, 213, 107, 0.60), rgba(247, 213, 107, 0));
+      pointer-events: none;
+    }
+    .appointment-box {
+      position: relative;
+      background: rgba(255,255,255,0.88);
+      border-radius: 28px;
+      border: var(--border);
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+    .appointment-box h2 {
+      margin: 0 0 6px;
+      color: var(--brown-dark);
+      font-size: 1.5rem;
+    }
+    .appointment-box p { margin: 0 0 18px; color: var(--muted); }
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .mini-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(247,213,107,0.22), rgba(243,177,90,0.10));
+      border: 1px solid rgba(139, 90, 43, 0.08);
+    }
+    .mini-item .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: rgba(139,90,43,0.12);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--brown-dark);
+      font-size: 1rem;
+    }
+    .mini-item strong { display:block; color: var(--brown-dark); }
+    .mini-item span { color: var(--muted); font-size: 0.93rem; }
+
+    .section {
+      padding: 22px 0 64px;
+    }
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      color: var(--brown-dark);
+    }
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: var(--border);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(8px);
+    }
+    .card h3 {
+      margin: 12px 0 8px;
+      color: var(--brown-dark);
+      font-size: 1.16rem;
+    }
+    .card p { margin: 0; color: var(--muted); }
+    .card .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(139,90,43,0.14), rgba(247,213,107,0.35));
+      color: var(--brown-dark);
+      font-size: 1.35rem;
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .about-panel {
+      background: linear-gradient(135deg, rgba(139,90,43,0.95), rgba(217,140,43,0.92), rgba(247,213,107,0.82));
+      color: white;
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 25px 50px rgba(139, 90, 43, 0.25);
+      overflow: hidden;
+      position: relative;
+    }
+    .about-panel::after {
+      content: "";
+      position: absolute;
+      right: -42px;
+      top: -42px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.14);
+    }
+    .about-panel h3 { margin: 0 0 12px; font-size: 1.8rem; }
+    .about-panel p { margin: 0 0 18px; color: rgba(255,255,255,0.93); }
+    .about-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+    .about-list li span {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.22);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+    .about-copy h2 { margin-top: 0; }
+    .about-copy p { color: var(--muted); }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    form {
+      display: grid;
+      gap: 14px;
+    }
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    label {
+      display: grid;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--brown-dark);
+      font-size: 0.95rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(139,90,43,0.16);
+      background: rgba(255,255,255,0.92);
+      font: inherit;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(217,140,43,0.85);
+      box-shadow: 0 0 0 4px rgba(247,213,107,0.25);
+    }
+    textarea { min-height: 130px; resize: vertical; }
+    .form-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0;
+    }
+    .appointment-info {
+      display: grid;
+      gap: 16px;
+    }
+    .info-box {
+      background: rgba(255,255,255,0.76);
+      border: var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 14px 34px rgba(91, 53, 23, 0.08);
+    }
+    .info-box h3 { margin: 0 0 8px; color: var(--brown-dark); }
+    .info-box p, .info-box li { color: var(--muted); }
+    .info-box ul { margin: 0; padding-left: 18px; }
+
+    .testimonial-card {
+      position: relative;
+      min-height: 210px;
+    }
+    .quote {
+      font-size: 3rem;
+      line-height: 1;
+      color: rgba(139,90,43,0.18);
+      margin-bottom: 6px;
+    }
+    .testimonial-card strong { display:block; margin-top: 14px; color: var(--brown-dark); }
+    .testimonial-card span { color: var(--muted); font-size: 0.94rem; }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+    details {
+      background: rgba(255,255,255,0.78);
+      border: var(--border);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 12px 30px rgba(91, 53, 23, 0.07);
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--brown-dark);
+    }
+    details p { color: var(--muted); margin-bottom: 0; }
+
+    footer {
+      padding: 30px 0 44px;
+    }
+    .footer-card {
+      background: linear-gradient(135deg, rgba(91,53,23,0.96), rgba(139,90,43,0.92), rgba(217,140,43,0.92));
+      color: white;
+      border-radius: 30px;
+      padding: 26px;
+      box-shadow: 0 24px 52px rgba(91, 53, 23, 0.24);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 18px;
+    }
+    .footer-grid h3, .footer-grid h4 { margin-top: 0; }
+    .footer-grid p, .footer-grid a { color: rgba(255,255,255,0.88); }
+    .footer-grid a:hover { color: #fff; }
+    .footer-bottom {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.95rem;
+    }
+
+    .success-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(91, 53, 23, 0.97);
+      color: white;
+      padding: 14px 16px;
+      border-radius: 18px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      max-width: 320px;
+      z-index: 1001;
+    }
+    .success-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .about-wrap, .booking-layout, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .field-grid { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      .navlinks { gap: 14px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 20px, 1180px); }
+      .hero { padding-top: 10px; }
+      .hero h1 { font-size: 2.3rem; }
+      .hero-actions { flex-direction: column; }
+      .cta-btn, .ghost-btn, .submit-btn { width: 100%; }
+      .section { padding-bottom: 48px; }
+      .topbar .row { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container row">
+      <div>Compassionate mental health care for individuals, couples, and families</div>
+      <div><strong>Open:</strong> Mon–Sat, 10:00 AM – 8:00 PM</div>
+    </div>
+  </div>
+
+  <header class="container">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        <div class="brand-mark">P</div>
+        <div>
+          <span>Serenity Mind Therapy</span>
+          <small>Professional Psychologist Services</small>
+        </div>
+      </a>
+
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#book">Book Appointment</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a class="cta-btn" href="#book">Book Now</a>
+    </nav>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <section class="hero-copy">
+        <div class="badge">🌿 Warm, private, and judgment-free support</div>
+        <h1>Professional psychology services built around calm, trust, and healing.</h1>
+        <p>
+          Serenity Mind Therapy helps clients manage stress, anxiety, relationships, burnout, and life transitions with a structured, compassionate approach.
+          Book a confidential session in just a few clicks.
+        </p>
+        <div class="hero-actions">
+          <a class="cta-btn" href="#book">Schedule Appointment</a>
+          <a class="ghost-btn" href="#services">Explore Services</a>
+        </div>
+        <div class="hero-stats" aria-label="Practice highlights">
+          <div class="stat"><strong>1:1</strong><span>Private therapy sessions</span></div>
+          <div class="stat"><strong>24 hr</strong><span>Response for booking requests</span></div>
+          <div class="stat"><strong>100%</strong><span>Confidential client care</span></div>
+        </div>
+      </section>
+
+      <aside class="hero-card" aria-label="Appointment summary card">
+        <div class="appointment-box">
+          <h2>Start Your Appointment</h2>
+          <p>Choose a convenient time and send a request instantly.</p>
+          <div class="mini-list">
+            <div class="mini-item">
+              <div class="icon">✓</div>
+              <div><strong>Easy booking</strong><span>Simple form for new and returning clients.</span></div>
+            </div>
+            <div class="mini-item">
+              <div class="icon">✓</div>
+              <div><strong>Flexible sessions</strong><span>In-person or online appointments available.</span></div>
+            </div>
+            <div class="mini-item">
+              <div class="icon">✓</div>
+              <div><strong>Personalized care</strong><span>Support tailored to your goals and pace.</span></div>
+            </div>
+          </div>
+          <a class="submit-btn" style="display:inline-block; text-align:center; width:100%;" href="#book">Book a Session</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Services</h2>
+          <p>Designed to help clients feel supported, understood, and equipped with practical coping tools.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="service-icon">🧠</div>
+          <h3>Anxiety & Stress Therapy</h3>
+          <p>Evidence-based sessions to reduce overwhelm, improve emotional regulation, and restore balance in daily life.</p>
+        </article>
+        <article class="card">
+          <div class="service-icon">💬</div>
+          <h3>Relationship Counseling</h3>
+          <p>Support for communication, conflict resolution, trust rebuilding, and healthier patterns in relationships.</p>
+        </article>
+        <article class="card">
+          <div class="service-icon">🌱</div>
+          <h3>Personal Growth Sessions</h3>
+          <p>Goal-oriented therapy for confidence, self-awareness, habits, and long-term emotional resilience.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container about-wrap">
+      <div class="about-panel">
+        <h3>Why clients choose Serenity Mind Therapy</h3>
+        <p>
+          A soothing environment, clear communication, and a thoughtful therapeutic process make it easier for clients to open up and make progress.
+        </p>
+        <ul class="about-list">
+          <li><span>1</span><div><strong>Confidential space</strong><div>Private, respectful, and secure sessions.</div></div></li>
+          <li><span>2</span><div><strong>Structured support</strong><div>Clear goals, session plans, and measurable growth.</div></div></li>
+          <li><span>3</span><div><strong>Warm experience</strong><div>A calm, welcoming design that builds trust.</div></div></li>
+        </ul>
+      </div>
+      <div class="about-copy card">
+        <h2>About the practice</h2>
+        <p>
+          This website is made for a modern psychologist business that wants to feel premium, approachable, and easy to use.
+          The brown, yellow, orange, and white palette gives the brand warmth and professionalism while keeping the layout clean and trustworthy.
+        </p>
+        <p>
+          You can use this as a starting point for a real clinic website, add your own logo, phone number, city, and booking link, or connect it to a WhatsApp or email appointment system.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="section">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Book an Appointment</h2>
+          <p>Send a booking request with your preferred date, time, and reason for visit.</p>
+        </div>
+      </div>
+
+      <div class="booking-layout">
+        <div class="card">
+          <form action="https://formspree.io/f/xwvwwylo" method="POST">
+            <div class="field-grid">
+              <label>
+                Full Name
+                <input type="text" name="name" placeholder="Enter your full name" required />
+              </label>
+              <label>
+                Phone Number
+                <input type="tel" name="phone" placeholder="e.g. +92 3xx xxxxxxx" required />
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                Email Address
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Session Type
+                <select name="sessionType" required>
+                  <option value="">Select session type</option>
+                  <option>In-person</option>
+                  <option>Online</option>
+                  <option>Follow-up</option>
+                  <option>Initial consultation</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                Preferred Date
+                <input type="date" name="date" required />
+              </label>
+              <label>
+                Preferred Time
+                <input type="time" name="time" required />
+              </label>
+            </div>
+
+            <label>
+              Reason for Appointment
+              <textarea name="message" placeholder="Tell us briefly what you would like help with..." required></textarea>
+            </label>
+
+            <p class="form-note">By submitting this form, you are requesting an appointment. A confirmation message will appear instantly on the page.</p>
+            <button class="submit-btn" type="submit">Submit Booking Request</button>
+          </form>
+        </div>
+
+        <div class="appointment-info">
+          <div class="info-box">
+            <h3>Clinic Details</h3>
+            <p><strong>Address:</strong> Add your clinic address here</p>
+            <p><strong>Phone:</strong> +92 300 0000000</p>
+            <p><strong>Email:</strong> hello@serenitymindtherapy.com</p>
+          </div>
+
+          <div class="info-box">
+            <h3>What to expect</h3>
+            <ul>
+              <li>A quick review of your request</li>
+              <li>Confirmation of slot availability</li>
+              <li>Session instructions and location details</li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h3>Best for</h3>
+            <ul>
+              <li>Stress, anxiety, and burnout</li>
+              <li>Relationship and family concerns</li>
+              <li>Self-esteem, motivation, and growth</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Client Testimonials</h2>
+          <p>Use these as placeholders and replace them with real feedback from your clients later.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card testimonial-card">
+          <div class="quote">“</div>
+          <p>The environment felt safe and peaceful. I finally had space to talk openly and work through my stress.</p>
+          <strong>Areeba K.</strong>
+          <span>Therapy client</span>
+        </article>
+        <article class="card testimonial-card">
+          <div class="quote">“</div>
+          <p>The booking process was simple, and the session helped me understand my situation much better.</p>
+          <strong>Hassan R.</strong>
+          <span>Consultation client</span>
+        </article>
+        <article class="card testimonial-card">
+          <div class="quote">“</div>
+          <p>Very professional, kind, and easy to talk to. The whole experience felt trustworthy and supportive.</p>
+          <strong>Sana M.</strong>
+          <span>Returning client</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Frequently Asked Questions</h2>
+          <p>Answer common questions before clients book, so the process feels easy and clear.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Do you offer online sessions?</summary>
+          <p>Yes. You can provide both online and in-person appointments depending on your practice setup.</p>
+        </details>
+        <details>
+          <summary>Can I use this website for a real clinic?</summary>
+          <p>Absolutely. Add your own branding, schedule, contact details, and booking integration to make it fully ready for use.</p>
+        </details>
+        <details>
+          <summary>Can the booking form send requests to WhatsApp or email?</summary>
+          <p>Yes. The form can be connected to WhatsApp, Formspree, EmailJS, or a custom backend later.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-card">
+      <div class="footer-grid">
+        <div>
+          <h3>Serenity Mind Therapy</h3>
+          <p>Professional psychologist services with a warm, modern, and calming online presence.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <p><a href="#services">Services</a></p>
+          <p><a href="#about">About</a></p>
+          <p><a href="#book">Book Appointment</a></p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>+92 300 0000000</p>
+          <p>hello@serenitymindtherapy.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Serenity Mind Therapy. All rights reserved.</span>
+        <span>Designed with warmth, clarity, and trust.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="success-toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const form = document.getElementById('bookingForm');
+    const toast = document.getElementById('toast');
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove('show'), 3600);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = (data.get('name') || '').toString().trim();
+      const date = (data.get('date') || '').toString().trim();
+      const time = (data.get('time') || '').toString().trim();
+      const sessionType = (data.get('sessionType') || '').toString().trim();
+
+      if (!name || !date || !time || !sessionType) {
+        showToast('Please complete all booking fields before submitting.');
+        return;
+      }
+
+      form.reset();
+      showToast(`Thank you, ${name}. Your ${sessionType} request for ${date} at ${time} has been received.`);
+    });
+  </script>
+</body>
+</html>
